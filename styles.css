@@ -7,20 +7,25 @@
 
 :root {
   --has-read-color: green;
+  --hover-read-color: lightgreen;
   --not-read-color: red;
-  --background-color: lightgrey;
+  --background-color: #f0eef1;
   --container-width: 1300px;
   --container-padding: 20px;
+  --border-radius: 15px;
 }
 .wrapper {
   height: 100vh;
   display: grid;
-  grid-template: 0.2fr 1fr 0.1fr / 1fr;
+  grid-template: 0.1fr 1fr 0.05fr / 1fr;
+  background-color: var(--background-color);
 }
 
 /* header */
 header {
   grid-area: 1 / 1 / 2 / 2;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .header-container {
   height: 100%;
@@ -34,34 +39,164 @@ header {
   background-color: var(--background-color);
   border: none;
   border-radius: 5px;
-  height: 35px;
+  height: 40px;
   width: 70px;
+  font-size: 1.2rem;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 /* main */
 main {
   grid-area: 2 / 1 / 3 / 2;
   display: grid;
-  grid-template: 0.2fr 1fr / minmax(300px, var(--container-width));
+  grid-template: 0.15fr 1fr / minmax(300px, var(--container-width));
   margin: auto;
   height: 100%;
   justify-items: center;
 }
 main .add-header {
   align-self: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
 }
+
+/* pop-up */
 .pop-up {
   position: absolute;
+  top: 30%;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  border-radius: var(--border-radius);
+  align-items: center;
+  background-color: var(--background-color);
+  visibility: hidden;
+  z-index: 9999;
+}
+.pop-up-header {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-align: center;
+}
+.default-blur {
+  z-index: 9998;
+  background-color: black;
+  opacity: 0.7;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   visibility: hidden;
 }
+.blur-toggle {
+  z-index: 9998;
+  background-color: black;
+  opacity: 0.7;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  visibility: visible;
+}
+.pop-up > * {
+  margin: 15px 0;
+}
+.pop-up input[type="text"],
+.pop-up input[type="number"] {
+  width: 90%;
+  font-size: 1.8rem;
+  border: none;
+  border-radius: 10px;
+  padding: 2px 5px;
+}
+.pop-up input[type="checkbox"] {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+.pop-up .check-container {
+  font-size: 1.4rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.pop-up button {
+  width: 90%;
+  height: 45px;
+  border: none;
+  border-radius: var(--border-radius);
+  background-color: var(--has-read-color);
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.visibility {
+  visibility: visible;
+}
+.pop-up button:hover {
+  background-color: var(--hover-read-color);
+}
+
+/* book tiles */
 .books {
   display: grid;
+  justify-content: center;
+  height: 100%;
   width: 100%;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-template-rows: repeat(auto-fit, minmax(250px, 100px));
+  gap: 1em;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 250px));
+  grid-template-rows: repeat(auto-fit, minmax(200px, 250px));
+}
+
+.book-item {
+  border-radius: var(--border-radius);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: grid;
+  grid-template: repeat(5, 1fr) / 1fr;
+  justify-content: center;
+  text-align: center;
+  background-color: #fff;
+  gap: 0.8rem;
+  padding: 10px;
+}
+.book-item div {
+  align-self: center;
+}
+.book-item button {
+  width: 90%;
+  justify-self: center;
+  border: none;
+  border-radius: var(--border-radius);
+  font-size: 1.3rem;
+  height: 50px;
+}
+
+/* LAST PLACE HASNT READ BUTTON COLOR */
+.hasnt-read.has-read {
+  background-color: var(--not-read-color);
+}
+
+.book-item .book-pages::after {
+  content: " Pages";
+}
+
+.has-read {
+  background-color: var(--has-read-color);
 }
 /* footer */
 footer {
   grid-area: 3 / 1 / -1 / -1;
+  display: grid;
+  background-color: var(--background-color);
+  place-content: center;
+  font-size: 1.2rem;
 }
