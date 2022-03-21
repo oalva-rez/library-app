@@ -1,6 +1,5 @@
 "use strict";
 
-let myLibrary = [];
 const $ = (selector) => {
   return document.querySelector(selector);
 };
@@ -11,78 +10,74 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
-
 Book.prototype.hasRead = function () {
   return this.read;
 };
-
-function addBookToLibrary(title, author, pages, read) {
-  const newBook = new Book(title, author, pages, read);
-  addBookTile(newBook);
-  myLibrary.push(newBook);
-}
 
 const addBook = $(".add-header");
 const popUp = $(".pop-up");
 const submitBook = $("#add-btn");
 const popUpBlur = $(".default-blur");
 
-addBook.addEventListener("click", () => {
-  popUp.classList.toggle("visibility");
-  popUpBlur.classList.toggle("blur-toggle");
-});
-popUpBlur.addEventListener("click", () => {
-  popUp.classList.toggle("visibility");
-  popUpBlur.classList.toggle("blur-toggle");
-});
+// On submit, create book tile element with book info
 submitBook.addEventListener("click", () => {
   const title = $("#title");
   const author = $("#author");
   const pages = $("#pages");
   const hasRead = $("#has-read");
 
+  // pop up becomes invisible on submit
   popUp.classList.toggle("visibility");
   popUpBlur.classList.toggle("blur-toggle");
 
   addBookToLibrary(title.value, author.value, pages.value, hasRead.checked);
 });
 
+// create book object and record new book info to tile element
+function addBookToLibrary(title, author, pages, read) {
+  const newBook = new Book(title, author, pages, read);
+  addBookTile(newBook);
+}
+
 function addBookTile(book) {
-  function setAttributes(el, attrs) {
-    for (var key in attrs) {
-      el.setAttribute(key, attrs[key]);
-    }
-  }
+  // create tile elements
   const bookItem = document.createElement("div");
-  setAttributes(bookItem, { class: "book-item" });
-
   const title = document.createElement("div");
-  setAttributes(title, { class: "book-title" });
-  title.textContent = book.title;
-
   const author = document.createElement("div");
-  setAttributes(author, { class: "book-author" });
-  author.textContent = book.author;
-
   const pages = document.createElement("div");
-  setAttributes(pages, { class: "book-pages" });
+  const hasReadToggle = document.createElement("button");
+  const removeBtn = document.createElement("button");
+
+  // add classes to elements
+  bookItem.classList.add("book-item");
+  title.classList.add("book-title");
+  author.classList.add("book-author");
+  pages.classList.add("book-pages");
+  removeBtn.classList.add("book-remove");
+
+  // add text to buttons
+  hasReadToggle.textContent = "Read";
+  removeBtn.textContent = "Remove";
+
+  // add book info text to elements
+  title.textContent = book.title;
+  author.textContent = book.author;
   pages.textContent = book.pages;
 
-  const hasReadToggle = document.createElement("button");
+  // toggle 'has read' button
   if (book.hasRead()) {
     hasReadToggle.classList.toggle("has-read");
   }
-  hasReadToggle.textContent = "Read";
   hasReadToggle.addEventListener("click", () => {
     hasReadToggle.classList.toggle("has-read");
   });
-  const removeBtn = document.createElement("button");
-  setAttributes(removeBtn, { class: "book-remove" });
-  removeBtn.textContent = "Remove";
+
+  // 'remove tile' button
   removeBtn.addEventListener("click", () => {
     bookItem.remove();
   });
 
+  // add created tile to DOM
   bookItem.appendChild(title);
   bookItem.appendChild(author);
   bookItem.appendChild(pages);
@@ -90,3 +85,14 @@ function addBookTile(book) {
   bookItem.appendChild(removeBtn);
   document.querySelector(".books").appendChild(bookItem);
 }
+
+// add book listener
+addBook.addEventListener("click", () => {
+  popUp.classList.toggle("visibility");
+  popUpBlur.classList.toggle("blur-toggle");
+});
+// pop up on 'add book' click
+popUpBlur.addEventListener("click", () => {
+  popUp.classList.toggle("visibility");
+  popUpBlur.classList.toggle("blur-toggle");
+});

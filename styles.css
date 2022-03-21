@@ -146,9 +146,6 @@ main .add-header {
 .visibility {
   visibility: visible;
 }
-.pop-up button:hover {
-  background-color: var(--hover-read-color);
-}
 
 /* book tiles */
 .books {
