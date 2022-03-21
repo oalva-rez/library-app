@@ -1,4 +1,4 @@
-<h1>Web Development 101 - Library App</h1>
+<h1>Library App</h1>
 <p>This JS Library app features DOM manipulation using JS and inputed book tracker.</p>
 <h2>Authors</h2>
 <p>Ozkar Alvarez</p>
