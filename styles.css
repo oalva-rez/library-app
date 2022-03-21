@@ -121,14 +121,11 @@ main .add-header {
   width: 90%;
   font-size: 1.8rem;
   border: none;
+  outline: none;
   border-radius: 10px;
   padding: 2px 5px;
 }
-.pop-up input[type="text"]:invalid:focus,
-.pop-up input[type="number"]:invalid:focus {
-  outline: none;
-  border: solid rgba(250, 122, 122, 0.596) 2px;
-}
+
 .pop-up input[type="checkbox"] {
   width: 1.2rem;
   height: 1.2rem;
