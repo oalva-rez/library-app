@@ -9,9 +9,8 @@ body {
   background-color: var(--background-color);
 }
 :root {
-  --has-read-color: green;
-  --hover-read-color: lightgreen;
-  --not-read-color: red;
+  --has-read-color: lightgreen;
+  --not-read-color: rgb(255, 55, 55);
   --background-color: #f0eef1;
   --container-width: 1300px;
   --container-padding: 20px;
@@ -121,6 +120,11 @@ main .add-header {
   border: none;
   border-radius: 10px;
   padding: 2px 5px;
+}
+.pop-up input[type="text"]:invalid:focus,
+.pop-up input[type="number"]:invalid:focus {
+  outline: none;
+  border: solid rgba(250, 122, 122, 0.596) 2px;
 }
 .pop-up input[type="checkbox"] {
   width: 1.2rem;

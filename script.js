@@ -26,12 +26,16 @@ const pages = $("#pages");
 const hasRead = $("#has-read");
 
 // On submit, create book tile element with book info
-submitBook.addEventListener("click", () => {
-  // pop up becomes invisible on submit
-  popUp.classList.toggle("visibility");
-  popUpBlur.classList.toggle("blur-toggle");
+submitBook.addEventListener("click", (e) => {
+  if ((title.value === "") | (author.value === "") | (pages.value === "")) {
+    return;
+  } else {
+    // pop up becomes invisible on submit
+    popUp.classList.toggle("visibility");
+    popUpBlur.classList.toggle("blur-toggle");
 
-  addBookToLibrary(title.value, author.value, pages.value, hasRead.checked);
+    addBookToLibrary(title.value, author.value, pages.value, hasRead.checked);
+  }
 });
 
 // create book object and record new book info to tile element
@@ -55,6 +59,11 @@ function addBookTile(book) {
   author.classList.add("book-author");
   pages.classList.add("book-pages");
   removeBtn.classList.add("book-remove");
+
+  // add required attribute to inputs
+  title.attributes["required"] = "";
+  author.attributes["required"] = "";
+  pages.attributes["required"] = "";
 
   // add text to buttons
   hasReadToggle.textContent = "Read";

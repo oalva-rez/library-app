@@ -19,50 +19,57 @@
   </head>
   <body>
     <div class="default-blur"></div>
-      <div class="wrapper">
-        <header>
-          <div class="header-container">
-            <h1>Libby</h1>
-            <button>Log in</button>
+    <div class="wrapper">
+      <header>
+        <div class="header-container">
+          <h1>Libby</h1>
+          <button>Log in</button>
+        </div>
+      </header>
+      <main>
+        <div class="add-header"><p>+ Add Book</p></div>
+        <div class="books"></div>
+
+        <form class="pop-up" id="submit-book">
+          <div class="pop-up-header">Add new book</div>
+          <input
+            type="text"
+            placeholder="Title"
+            id="title"
+            maxlength="30"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Author"
+            id="author"
+            maxlength="30"
+            required
+          />
+          <input type="number" placeholder="Pages" id="pages" required />
+          <div class="check-container">
+            <label for="has-read">Have you read it?</label>
+            <input
+              type="checkbox"
+              id="has-read"
+              name="check"
+              value="true"
+              checked
+            />
           </div>
-        </header>
-        <main>
-          
-          <div class="add-header"><p>+ Add Book</p></div>
-          <div class="books">
-            <div class="book-item">
-              <div class="book-title">'test'</div>
-              <div class="book-author">author</div>
-              <div class="book-pages">34</div>
-              <button class="has-read">Read</button>
-              <button class="book-remove">Remove</button>
-            </div>
-            
-          <div class="pop-up">
-            <div class="pop-up-header">Add new book</div>
-            <input type="text" placeholder="Title" id="title" maxlength="30" required/>
-            <input type="text" placeholder="Author" id="author" maxlength="30" required/>
-            <input type="number" placeholder="Pages" id="pages" required/>
-            <div class="check-container">
-              <label for="has-read">Have you read it?</label>
-              <input type="checkbox" id="has-read" name="check" value="true" checked/>
-            </div>
-            <button type="submit" id="add-btn">Submit</button>
-          </div>
-        </main>
-        <footer>
-          <p>
-           Copyright &copy; | Ozkar Alvarez
-            <a
-              href="https://github.com/oalva-rez"
-              target="_blank"
-              id="github"
-              ><i class="fa fa-github" style="font-size: 24px; color: black;" ></i
-            ></a>
-          </p>
-        </footer>
-      </div>
-    
+          <button type="submit" id="add-btn">Submit</button>
+        </form>
+      </main>
+      <footer>
+        <p>
+          Copyright &copy; | Ozkar Alvarez
+          <a href="https://github.com/oalva-rez" target="_blank" id="github"
+            ><i class="fa fa-github" style="font-size: 24px; color: black"></i
+          ></a>
+        </p>
+      </footer>
+    </div>
+
     <script src="script.js"></script>
   </body>
 </html>
