@@ -3,6 +3,7 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
+  color: black;
 }
 
 body {
@@ -45,6 +46,7 @@ header {
   width: 70px;
   font-size: 1.2rem;
   font-weight: 500;
+  color: black;
   cursor: pointer;
 }
 
@@ -63,6 +65,7 @@ main .add-header {
   font-size: 1.5rem;
   font-weight: 500;
   cursor: pointer;
+  color: black;
 }
 
 /* pop-up */
