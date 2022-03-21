@@ -72,6 +72,7 @@ main .add-header {
 .pop-up {
   position: absolute;
   top: 30%;
+  margin: auto;
   min-width: 250px;
   display: flex;
   flex-direction: column;
@@ -195,7 +196,7 @@ main .add-header {
 }
 
 .book-item .has-read {
-  background-color: green;
+  background-color: var(--has-read-color);
 }
 /* footer */
 footer {
