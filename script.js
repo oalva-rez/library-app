@@ -19,13 +19,14 @@ const popUp = $(".pop-up");
 const submitBook = $("#add-btn");
 const popUpBlur = $(".default-blur");
 
+// new book input values
+const title = $("#title");
+const author = $("#author");
+const pages = $("#pages");
+const hasRead = $("#has-read");
+
 // On submit, create book tile element with book info
 submitBook.addEventListener("click", () => {
-  const title = $("#title");
-  const author = $("#author");
-  const pages = $("#pages");
-  const hasRead = $("#has-read");
-
   // pop up becomes invisible on submit
   popUp.classList.toggle("visibility");
   popUpBlur.classList.toggle("blur-toggle");
@@ -86,12 +87,15 @@ function addBookTile(book) {
   document.querySelector(".books").appendChild(bookItem);
 }
 
-// add book listener
+// add book listener for pop up
 addBook.addEventListener("click", () => {
+  title.value = "";
+  author.value = "";
+  pages.value = "";
   popUp.classList.toggle("visibility");
   popUpBlur.classList.toggle("blur-toggle");
 });
-// pop up on 'add book' click
+// exit pop up on click anywhere outside of pop up
 popUpBlur.addEventListener("click", () => {
   popUp.classList.toggle("visibility");
   popUpBlur.classList.toggle("blur-toggle");
