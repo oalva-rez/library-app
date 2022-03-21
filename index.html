@@ -34,15 +34,15 @@
               <div class="book-title">'test'</div>
               <div class="book-author">author</div>
               <div class="book-pages">34</div>
-              <button class="hasnt-read has-read">Read</button>
+              <button class="has-read">Read</button>
               <button class="book-remove">Remove</button>
             </div>
             
           <div class="pop-up">
             <div class="pop-up-header">Add new book</div>
-            <input type="text" placeholder="Title" id="title" />
-            <input type="text" placeholder="Author" id="author" />
-            <input type="number" placeholder="Pages" id="pages" />
+            <input type="text" placeholder="Title" id="title" required/>
+            <input type="text" placeholder="Author" id="author" required/>
+            <input type="number" placeholder="Pages" id="pages" required/>
             <div class="check-container">
               <label for="has-read">Have you read it?</label>
               <input type="checkbox" id="has-read" name="check" value="true" checked/>

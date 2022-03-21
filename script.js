@@ -1,3 +1,5 @@
+"use strict";
+
 let myLibrary = [];
 const $ = (selector) => {
   return document.querySelector(selector);
@@ -39,6 +41,9 @@ submitBook.addEventListener("click", () => {
   const pages = $("#pages");
   const hasRead = $("#has-read");
 
+  popUp.classList.toggle("visibility");
+  popUpBlur.classList.toggle("blur-toggle");
+
   addBookToLibrary(title.value, author.value, pages.value, hasRead.checked);
 });
 
@@ -68,7 +73,9 @@ function addBookTile(book) {
     hasReadToggle.classList.toggle("has-read");
   }
   hasReadToggle.textContent = "Read";
-
+  hasReadToggle.addEventListener("click", () => {
+    hasReadToggle.classList.toggle("has-read");
+  });
   const removeBtn = document.createElement("button");
   setAttributes(removeBtn, { class: "book-remove" });
   removeBtn.textContent = "Remove";
