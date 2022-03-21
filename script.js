@@ -66,7 +66,6 @@ function addBookTile(book) {
   pages.attributes["required"] = "";
 
   // add text to buttons
-  hasReadToggle.textContent = "Read";
   removeBtn.textContent = "Remove";
 
   // add book info text to elements
@@ -77,9 +76,19 @@ function addBookTile(book) {
   // toggle 'has read' button
   if (book.hasRead()) {
     hasReadToggle.classList.toggle("has-read");
+    hasReadToggle.textContent = "Read";
+  } else {
+    hasReadToggle.textContent = "Not Read";
   }
+
+  // change toggle text on click
   hasReadToggle.addEventListener("click", () => {
     hasReadToggle.classList.toggle("has-read");
+    if (hasReadToggle.textContent === "Read") {
+      hasReadToggle.textContent = "Not Read";
+    } else {
+      hasReadToggle.textContent = "Read";
+    }
   });
 
   // 'remove tile' button
