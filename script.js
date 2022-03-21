@@ -16,7 +16,6 @@ Book.prototype.hasRead = function () {
 
 const addBook = $(".add-header");
 const popUp = $(".pop-up");
-const submitBook = $("#add-btn");
 const popUpBlur = $(".default-blur");
 
 // new book input values
@@ -26,15 +25,16 @@ const pages = $("#pages");
 const hasRead = $("#has-read");
 
 // On submit, create book tile element with book info
-submitBook.addEventListener("click", (e) => {
+popUp.addEventListener("submit", (e) => {
   if ((title.value === "") | (author.value === "") | (pages.value === "")) {
-    return;
+    e.preventDefault();
   } else {
     // pop up becomes invisible on submit
     popUp.classList.toggle("visibility");
     popUpBlur.classList.toggle("blur-toggle");
 
     addBookToLibrary(title.value, author.value, pages.value, hasRead.checked);
+    e.preventDefault();
   }
 });
 
