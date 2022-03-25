@@ -15,11 +15,6 @@ const author = $("#author");
 const pages = $("#pages");
 const hasRead = $("#has-read");
 
-// add 'required' attribute to input elements
-title.attributes["required"] = "";
-author.attributes["required"] = "";
-pages.attributes["required"] = "";
-
 // add book listener for pop up
 addBook.addEventListener("click", () => {
   title.value = "";
