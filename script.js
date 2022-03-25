@@ -1,3 +1,4 @@
+"use strict";
 const $ = (selector) => {
   return document.querySelector(selector);
 };
